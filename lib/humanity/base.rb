@@ -17,7 +17,8 @@ module Humanity
     end
 
     def has_role?(role)
-      roles.where(name: role.to_s).first.present?
+      role = [role] if !role.is_a? Array
+      (roles.map(&:name) & role.map(&:to_s)).length > 0
     end
 
     def admin?
