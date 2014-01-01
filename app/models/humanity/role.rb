@@ -6,8 +6,8 @@ module Humanity
 
     validates_presence_of :name
 
-    def human_names
-      self.assignments.map() { |assign| assign.human.name }
+    def humans
+      self.assignments.map() { |assign| assign.human }
     end
 
     def to_s
